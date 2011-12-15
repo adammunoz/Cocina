@@ -8,7 +8,7 @@ class Order
   end
  
   def add_product(product_name)
-    @contents.add(product_name)
+    return @contents.add(product_name)
   end
   
 end
