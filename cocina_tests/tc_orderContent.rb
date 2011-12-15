@@ -2,15 +2,14 @@ require 'test/unit'
 require 'lib/orderContent'
 
 class TestOrderContent < Test::Unit::TestCase
-  
+  PRODUCT_NAME = 'TestProduct TestOrderContent'
   def setup
     @order_content = OrderContent.new
-    @product = Product.new 'test_product'
   end
   
   def test_add
-    @order_content.add @product
-    assert @order_content.exists(@product)
+    @order_content.add PRODUCT_NAME
+    assert @order_content.exists(PRODUCT_NAME)
   end
   
 end

@@ -3,9 +3,10 @@ class OrderContent
     @rows = []
   end
  
-  def add(product)
+  def add(product_name)
     #It adds a product to the contents incrementing quantity if it already exists
-    #It returns the row added (or whose quantity has incremented) 
+    #It returns the row added (or whose quantity has incremented)
+    product = Product.new(product_name) 
     _exists product do |row| 
       if row then row.inc_qty else @rows << Row.new(product)
       end
@@ -13,8 +14,8 @@ class OrderContent
     end
   end
   
-  def exists(product)
-    _exists(product) {|row| return row }
+  def exists(product_name)
+    _exists(Product.new(product_name)) {|row| return row }
   end
   
   private 
