@@ -8,7 +8,11 @@ class OrderContent
     #It returns the row added (or whose quantity has incremented)
     product = Product.new(product_name) 
     _exists product do |row| 
-      if row then row.inc_qty else @rows << Row.new(product)
+      if row
+        row.inc_qty 
+      else 
+        row = Row.new(product)
+        @rows << row
       end
       return row
     end
