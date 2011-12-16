@@ -12,6 +12,16 @@ class TestOrderContent < Test::Unit::TestCase
     assert @order_content.exists(PRODUCT_NAME)
   end
   
+  def test_each
+    @order_content.add PRODUCT_NAME
+    @order_content.add(PRODUCT_NAME + '2')
+    ary = []
+    @order_content.each do |row|
+      ary << row
+    end
+    assert_equal(2,ary.length)
+  end
+  
 end
 
 class TestRow < Test::Unit::TestCase

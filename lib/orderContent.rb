@@ -22,6 +22,12 @@ class OrderContent
     _exists(Product.new(product_name)) {|row| return row }
   end
   
+  def each
+    @rows.each do |row|
+      yield row
+    end
+  end
+  
   private 
   def _exists(product)
     #if the product exists yields the row where it exists, otherwise yields nill

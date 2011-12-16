@@ -1,19 +1,35 @@
 require 'rubygems'
 require 'gtk2'
+require 'lib/order'
 
-class Table < Gtk::Table
+class Table < Gtk::VBox
   #Represents an order to display in the form of a table
-  ROWS = 1
-  COLUMNS = 3
+  SPACING = 10
   
   def initialize
-    super(ROWS,COLUMNS)
+    super(false,SPACING)
+    @order = Order.new
     setup
+  end
+  
+  def add_product(product_name)
+    @order.add_product(product_name)
+    update_view
   end
   
   private
   def setup
     modify_bg Gtk::STATE_NORMAL , Gdk::Color::parse('white')
+  end
+  
+  def update_view
+    clear
+  end
+  
+  def clear
+    each do |child|
+      remove child
+    end
   end
   
 end
