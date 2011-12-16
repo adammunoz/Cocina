@@ -9,7 +9,6 @@ class Table < Gtk::VBox
   def initialize
     super(false,SPACING)
     @order = Order.new
-    setup
   end
   
   def add_product(product_name)
@@ -18,9 +17,6 @@ class Table < Gtk::VBox
   end
   
   private
-  def setup
-    modify_bg Gtk::STATE_NORMAL , Gdk::Color::parse('white')
-  end
   
   def update_view
     clear
@@ -51,7 +47,9 @@ class TableRow < Gtk::HBox
 end
 
 class TableCell < Gtk::Label
+  COLOR = '#FFFFFF'
   def initialize(text)
-    super text.to_s
+    super 'not set'
+    set_markup "<span background='#{COLOR}'>#{text.to_s}</span>"
   end
 end

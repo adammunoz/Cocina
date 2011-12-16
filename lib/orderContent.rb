@@ -65,4 +65,8 @@ class Product
     return @name == other_product.name
   end
   
+  def to_s
+    return @name
+  end
+  
 end
