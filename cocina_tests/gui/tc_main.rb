@@ -1,6 +1,6 @@
 require 'test/unit'
 require 'gui/main'
-require 'gui/table'
+
 
 class TestMain < Test::Unit::TestCase
   
@@ -9,9 +9,7 @@ class TestMain < Test::Unit::TestCase
   end
   
   def test_run
-    test_table = Table.new
-    test_table.add_product('Test_product')
-    @app.add_table(test_table)
+    @app.add_order('Test Product','0')
     @app.run
   end
 end

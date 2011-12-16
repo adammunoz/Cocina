@@ -15,6 +15,7 @@ class App
     @main_window.set_border_width 20
     @main_window.add @main_box
     @main_window.maximize
+    
   end
   
   def run
@@ -22,8 +23,10 @@ class App
     Gtk.main
   end
   
-  def add_table(table)
-    @main_box.pack_start_defaults table
+  def add_order(product_name,table_num)
+    orderTable = Table.new
+    orderTable.add_product(product_name)
+    @main_box.pack_start_defaults orderTable
   end
   
 end

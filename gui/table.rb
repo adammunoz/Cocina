@@ -30,7 +30,7 @@ class Table < Gtk::VBox
   end
   
   def add_row(row)
-    pack_start_defaults Gtk::Label.new('Uninitialized')
+    pack_start_defaults TableRow.new(row)
   end
   
   def clear
@@ -39,4 +39,19 @@ class Table < Gtk::VBox
     end
   end
   
+end
+
+class TableRow < Gtk::HBox
+  SPACING = 20
+  def initialize(row)
+    super false, SPACING
+    pack_start_defaults TableCell.new(row.qty)
+    pack_start_defaults TableCell.new(row.product)
+  end
+end
+
+class TableCell < Gtk::Label
+  def initialize(text)
+    super text.to_s
+  end
 end
