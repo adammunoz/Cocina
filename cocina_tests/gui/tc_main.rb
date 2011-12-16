@@ -10,6 +10,7 @@ class TestMain < Test::Unit::TestCase
   
   def test_run
     @app.add_order('Test Product','0')
+    @app.add_order('Test Product2','0')
     @app.run
   end
 end
