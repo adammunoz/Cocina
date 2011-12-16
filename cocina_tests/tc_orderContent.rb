@@ -17,7 +17,7 @@ class TestOrderContent < Test::Unit::TestCase
     @order_content.add(PRODUCT_NAME + '2')
     ary = []
     @order_content.each do |row|
-      ary << row
+      ary << row.qty
     end
     assert_equal(2,ary.length)
   end
