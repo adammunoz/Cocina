@@ -24,9 +24,9 @@ class App
   end
   
   def add_order(product_name,table_num)
-    orderTable = Table.new
+    orderTable = Table.new(table_num)
     orderTable.add_product(product_name)
-    @main_box.pack_start_defaults orderTable
+    @main_box.pack_start orderTable.frame, false, false, 0
   end
   
 end
