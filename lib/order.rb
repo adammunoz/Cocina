@@ -1,7 +1,7 @@
 require 'lib/orderContent'
 
 class Order
-  
+  attr_reader :contents
   def initialize
     @table = 0
     @contents = OrderContent.new

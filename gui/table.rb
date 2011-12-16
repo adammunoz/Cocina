@@ -24,6 +24,13 @@ class Table < Gtk::VBox
   
   def update_view
     clear
+    @order.contents().each do |row|
+      add_row row
+    end
+  end
+  
+  def add_row(row)
+    pack_start_defaults Gtk::Label.new('Uninitialized')
   end
   
   def clear
