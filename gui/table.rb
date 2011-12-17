@@ -68,7 +68,7 @@ class CocinaLabel < Gtk::Label
   
   def initialize(text)
     super 'not set'
-    my_set_markup text,16, 'yellow','black'
+    my_set_markup text,12, 'yellow','black'
   end
   
   private
