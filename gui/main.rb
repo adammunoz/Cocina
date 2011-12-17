@@ -63,7 +63,8 @@ class App
   
   def remove_order
     log.info "Removing order..."
-     
+    @orders_pool.out
+    @main_box.remove @main_box.children[0] 
   end
   
   def alloc_table(table_num)
