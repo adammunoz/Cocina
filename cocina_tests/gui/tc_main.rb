@@ -1,15 +1,16 @@
-require 'test/unit'
 require 'gui/main'
 
 
-class TestMain < Test::Unit::TestCase
+class TestMain
   
-  def setup
+  def initialize
     @app = App.new
   end
   
   def test_run
-    @app.start_network('192.168.1.11')
+    @app.add_order('Test Product','0')
     @app.run
   end
 end
+
+TestMain.new().test_run

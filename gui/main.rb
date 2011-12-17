@@ -3,16 +3,14 @@ require 'gtk2'
 require 'gui/table'
 require 'net/main_client'
 require 'lib/order_parser'
-require 'logger'
+require 'cocina_log'
 
 class App
   include OrderParser
+  include CocinaLog
   @orders_client
-  attr_reader :log
   def initialize
-    #starts logger
-    @log = Logger.new('log/cocina.log')
-    
+ 
     #Create the main window and pack its widgets
     @main_window = Gtk::Window.new
     
@@ -36,6 +34,7 @@ class App
     log.info "Network started"
     @orders_client = MainClient.new(host)
     @orders_client.wait_for_msgs() do |msg|
+      log.debug "Parsing #{msg}"
       result_hash = parse msg
       add_order result_hash[:product], result_hash[:table_num] if result_hash != nil
     end
@@ -47,6 +46,7 @@ class App
     orderTable = Table.new(table_num)
     orderTable.add_product(product_name)
     @main_box.pack_start orderTable.frame, false, false, 0
+    orderTable.frame().show_all
   end
   
 end

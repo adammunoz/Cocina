@@ -2,6 +2,7 @@ require 'socket'
 require 'net/client'
 
 class MainClient < Client
+  #todo: properly close the socket when existing program
   def initialize(host)
     super host, 8888
   end
@@ -11,5 +12,4 @@ class MainClient < Client
       yield line.chop
     end
   end
-  
 end
