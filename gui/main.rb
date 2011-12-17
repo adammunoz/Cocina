@@ -29,6 +29,8 @@ class App
       Gtk.main_quit
     end
     
+    @orders_pool = Hash.new
+    
   end
   
   def run
@@ -50,10 +52,14 @@ class App
   
   def add_order(product_name,table_num)
     log.info "Adding order...#{product_name} : table_num #{table_num}"
-    orderTable = Table.new(table_num)
+    orderTable = alloc_table table_num
     orderTable.add_product(product_name)
     @main_box.pack_start orderTable.frame, false, false, 0
-    orderTable.frame().show_all
+  end
+  
+  def alloc_table(table_num)
+    @orders_pool[table_num] = Table.new(table_num) if not @orders_pool.key? table_num
+    return @orders_pool[table_num]
   end
   
   def clean

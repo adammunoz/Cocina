@@ -28,6 +28,7 @@ class Table
     @order.contents().each do |row|
       add_row row
     end
+    @frame.show_all
   end
   
   def add_row(row)
@@ -36,7 +37,7 @@ class Table
   
   def clear
     @box.each do |child|
-      remove child
+      @box.remove child
     end
   end
   
