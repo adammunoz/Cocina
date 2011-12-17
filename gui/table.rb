@@ -21,6 +21,11 @@ class Table
     update_view
   end
   
+  def remove_product(product_name)
+    @order.remove_product(product_name)
+    update_view
+  end
+  
   private
   
   def update_view

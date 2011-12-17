@@ -36,4 +36,9 @@ class Order
     return @contents.add(product_name)
   end
   
+  def remove_product(product_name)
+    log.debug "Order.remove_product #{product_name}"
+    return @contents.remove(product_name)
+  end
+  
 end

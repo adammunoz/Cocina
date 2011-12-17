@@ -48,11 +48,23 @@ class App
     @orders_client = MainClient.new(host)
     @orders_client.wait_for_msgs() do |msg|
       log.debug "Parsing #{msg}"
-      result_hash = parse msg
-      add_order result_hash[:product], result_hash[:table_num] if result_hash != nil
+      parsed = parse msg
+      dispatch parsed if parsed != nil
     end
-    
   end
+  
+  def dispatch(p_msg)
+    operation =  p_msg[:op]
+    if operation == 'comanda'
+        #log.debug "Dispatching #{p_msg[:op]} - Executing add_order"
+        add_order p_msg[:product], p_msg[:table_num]
+    elsif operation == 'borrar'
+        log.debug "Dispatching #{p_msg[:op]} - Executing remove_row"
+        remove_product p_msg[:product], p_msg[:table_num]
+    else
+        log.debug "Operation #{p_msg[:op]} cannot be dispatched - We should not have come to this point"
+    end
+  end  
   
   def add_order(product_name,table_num)
     log.info "Adding order...#{product_name} : table_num #{table_num}"
@@ -65,6 +77,12 @@ class App
     log.info "Removing order..."
     @orders_pool.out
     @main_box.remove @main_box.children[0] 
+  end
+  
+  def remove_product(product_name,table_num)
+    log.info "Remove product #{product_name} from #{table_num}"
+    orderTable = alloc_table table_num
+    orderTable.remove_product product_name
   end
   
   def alloc_table(table_num)

@@ -18,6 +18,19 @@ class OrderContent
     end
   end
   
+  def remove(product_name)
+    product = Product.new(product_name)
+    _exists product do |row|
+      if row
+        row.dec_qty if row.qty > 1
+        @rows.delete(row) if row.qty == 1
+        return true
+      else
+        return false
+      end
+    end
+  end
+  
   def exists(product_name)
     _exists(Product.new(product_name)) {|row| return row }
   end

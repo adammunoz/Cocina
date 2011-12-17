@@ -1,11 +1,19 @@
+require 'cocina_log'
 module OrderParser
+  include CocinaLog
   SEPARATOR = '@'
-  ORDER_COMMAND = 'comanda'
+  SYNTAX = ['comanda','borrar']
+  
   def parse(s)
     ary = s.split SEPARATOR
-    if ary[0] != ORDER_COMMAND then
+    command = ary[0]
+    if SYNTAX.include? command
+      log.debug "#{command} is allowed syntax"
+      return {:op => command, :table_num => ary[1], :product => ary[2]}
+    else
+      log.debug "#{command} is NOT allowed syntax"
       return nil
     end
-  return {:table_num => ary[1], :product => ary[2]}
   end
+  
 end
