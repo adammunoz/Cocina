@@ -29,7 +29,11 @@ class App
       Gtk.main_quit
     end
     
-    @orders_pool = Hash.new
+    @main_window.signal_connect "key_press_event" do
+      remove_order
+    end
+    
+    @orders_pool = OrdersPool.new
     
   end
   
@@ -57,8 +61,13 @@ class App
     @main_box.pack_start orderTable.frame, false, false, 0
   end
   
+  def remove_order
+    log.info "Removing order..."
+     
+  end
+  
   def alloc_table(table_num)
-    @orders_pool[table_num] = Table.new(table_num) if not @orders_pool.key? table_num
+    @orders_pool << ([table_num,Table.new(table_num)]) if not @orders_pool[table_num]
     return @orders_pool[table_num]
   end
   
