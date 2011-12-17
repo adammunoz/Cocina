@@ -1,8 +1,11 @@
 require 'socket'      
+require 'net/client'
 
-class QueryClient
-  def initialize(host,port)
-    @client = TCPSocket.open(host, port)
+class QueryClient < Client
+  QUERY_PORT = 7777
+  
+  def initialize(host)
+    super host,QUERY_PORT
   end
   
   def get_num_mesas
