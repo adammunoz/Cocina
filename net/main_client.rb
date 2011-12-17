@@ -6,9 +6,9 @@ class MainClient < Client
     super host, 8888
   end
   
-  def wait_for_msgs
+  def wait_for_msgs # Receives a block
     while line = @client.gets
-      puts line.chop
+      yield line.chop
     end
   end
   

@@ -9,8 +9,7 @@ class TestMain < Test::Unit::TestCase
   end
   
   def test_run
-    @app.add_order('Test Product','0')
-    @app.add_order('Test Product2','0')
+    @app.start_network('192.168.1.11')
     @app.run
   end
 end

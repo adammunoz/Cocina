@@ -1,0 +1,16 @@
+# Logfile created on Sat Dec 17 10:46:29 +0100 2011 by logger.rb/22285
+I, [2011-12-17T10:47:41.000055 #7705]  INFO -- : Adding order...Te Moruno-Limon : table_num 2
+I, [2011-12-17T10:50:24.084123 #7997]  INFO -- : Network started
+I, [2011-12-17T10:50:40.441781 #7705]  INFO -- : Adding order...Te Almendras : table_num 2
+I, [2011-12-17T10:50:40.448648 #7997]  INFO -- : Adding order...Te Almendras : table_num 2
+I, [2011-12-17T10:50:48.449639 #7705]  INFO -- : Adding order...Te Vainilla : table_num 2
+I, [2011-12-17T10:50:48.455762 #7997]  INFO -- : Adding order...Te Vainilla : table_num 2
+I, [2011-12-17T10:51:53.399196 #8006]  INFO -- : Network started
+I, [2011-12-17T10:52:08.955623 #8006]  INFO -- : Adding order...Te Moruno : table_num 1
+I, [2011-12-17T10:52:13.555386 #8006]  INFO -- : Adding order...Te Tunecino : table_num 1
+I, [2011-12-17T10:52:19.014941 #8006]  INFO -- : Adding order...Te Turco : table_num 1
+I, [2011-12-17T10:52:23.611895 #8006]  INFO -- : Adding order...Te Libio : table_num 1
+I, [2011-12-17T10:52:28.687917 #8006]  INFO -- : Adding order...Te Ruso : table_num 1
+I, [2011-12-17T10:52:32.106102 #8006]  INFO -- : Adding order...Te Pakistani : table_num 1
+I, [2011-12-17T10:52:47.529254 #8006]  INFO -- : Adding order...Crepe Chocolate : table_num 2
+I, [2011-12-17T10:52:48.837812 #8006]  INFO -- : Adding order...Crepe Que-Fresco Miel : table_num 2
