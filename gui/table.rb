@@ -53,7 +53,7 @@ class TableRow < Gtk::HBox
   SPACING = 10
   def initialize(row)
     super false, SPACING
-    set_border_width SPACING
+    
     pack_start CocinaLabel.new(row.qty), false, false, 0
     pack_start CocinaLabel.new(row.product), false, false, 0
   end
@@ -68,7 +68,7 @@ class CocinaLabel < Gtk::Label
   
   def initialize(text)
     super 'not set'
-    my_set_markup text,12, 'yellow','black'
+    my_set_markup text,14, 'yellow','black'
   end
   
   private

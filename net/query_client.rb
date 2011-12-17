@@ -1,11 +1,12 @@
 require 'socket'      
 require 'net/client'
+require 'conf/cocina_gconf'
+
 
 class QueryClient < Client
-  QUERY_PORT = 7777
-  
-  def initialize(host)
-    super host,QUERY_PORT
+  include Conf
+  def initialize
+    super client["/apps/cocina/host"],client["/apps/cocina/query_port"]
   end
   
   def get_num_mesas

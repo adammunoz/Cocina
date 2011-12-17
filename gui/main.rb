@@ -4,10 +4,12 @@ require 'gui/table'
 require 'net/main_client'
 require 'lib/order_parser'
 require 'cocina_log'
+require 'conf/cocina_gconf'
 
 class App
   include OrderParser
   include CocinaLog
+  include Conf
   @orders_client
   def initialize
  
@@ -43,18 +45,22 @@ class App
     Gtk.main
   end
   
-  def start_network(host)
-    log.info "Network started"
-    @orders_client = MainClient.new(host)
+  def start_network
+    @orders_client = MainClient.new
     @orders_client.wait_for_msgs() do |msg|
       log.debug "Parsing #{msg}"
       parsed = parse msg
       dispatch parsed if parsed != nil
     end
+    log.info "Network started"
   end
   
   def dispatch(p_msg)
     operation =  p_msg[:op]
+    if not client["/apps/cocina/listen_tables"].split(',').include?(p_msg[:table_num])
+      log.debug "Ignoring #{p_msg[:table_num]}"
+      return false
+    end  
     if operation == 'comanda'
         #log.debug "Dispatching #{p_msg[:op]} - Executing add_order"
         add_order p_msg[:product], p_msg[:table_num]
