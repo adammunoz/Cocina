@@ -22,6 +22,13 @@ class App
     @main_window.set_border_width 20
     @main_window.add @main_box
     @main_window.maximize 
+    
+    #Setup window events
+    @main_window.signal_connect "destroy" do
+      clean
+      Gtk.main_quit
+    end
+    
   end
   
   def run
@@ -47,6 +54,10 @@ class App
     orderTable.add_product(product_name)
     @main_box.pack_start orderTable.frame, false, false, 0
     orderTable.frame().show_all
+  end
+  
+  def clean
+    @orders_client.clean
   end
   
 end

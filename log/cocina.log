@@ -107,3 +107,23 @@ I, [2011-12-17T12:23:52.509740 #8818]  INFO -- : Adding order...Crepe Marrakech 
 D, [2011-12-17T12:23:52.513143 #8818] DEBUG -- : Order.add_product Crepe Marrakech
 D, [2011-12-17T12:23:52.535488 #8818] DEBUG -- : Parsing mesaCambiada@1
 D, [2011-12-17T12:23:55.188562 #8818] DEBUG -- : Parsing mesaCerrada@1
+I, [2011-12-17T13:01:05.682190 #9026]  INFO -- : Network started
+I, [2011-12-17T13:01:05.683084 #9026]  INFO -- : Program started
+D, [2011-12-17T13:01:19.583760 #9026] DEBUG -- : Parsing mesaOcupada@1
+D, [2011-12-17T13:01:25.908390 #9026] DEBUG -- : Parsing comanda@1@Crepe Azucar
+I, [2011-12-17T13:01:25.932031 #9026]  INFO -- : Adding order...Crepe Azucar : table_num 1
+D, [2011-12-17T13:01:25.958187 #9026] DEBUG -- : Order.add_product Crepe Azucar
+D, [2011-12-17T13:01:26.127862 #9026] DEBUG -- : Parsing mesaCambiada@1
+D, [2011-12-17T13:02:14.768574 #9026] DEBUG -- : Parsing mesaCerrada@1
+I, [2011-12-17T13:06:45.740123 #9059]  INFO -- : Network started
+I, [2011-12-17T13:06:45.740693 #9059]  INFO -- : Program started
+I, [2011-12-17T13:06:54.382208 #9059]  INFO -- : Socket closed
+I, [2011-12-17T13:07:31.179443 #9073]  INFO -- : Network started
+I, [2011-12-17T13:07:31.180295 #9073]  INFO -- : Program started
+D, [2011-12-17T13:07:33.982216 #9073] DEBUG -- : Parsing mesaOcupada@2
+D, [2011-12-17T13:07:38.461689 #9073] DEBUG -- : Parsing comanda@2@Te Moruno-Limon
+I, [2011-12-17T13:07:38.470575 #9073]  INFO -- : Adding order...Te Moruno-Limon : table_num 2
+D, [2011-12-17T13:07:38.476075 #9073] DEBUG -- : Order.add_product Te Moruno-Limon
+D, [2011-12-17T13:07:38.532619 #9073] DEBUG -- : Parsing mesaCambiada@2
+D, [2011-12-17T13:07:50.686531 #9073] DEBUG -- : Parsing mesaCerrada@2
+I, [2011-12-17T13:08:09.698940 #9073]  INFO -- : Socket closed
